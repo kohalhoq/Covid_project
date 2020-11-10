@@ -41,7 +41,9 @@ class Questions:
         Attributes:
          
         Returns: 
-        
+        quarantine_requirement: provide if the user needs to quarantined from other individuals
+        social_distancing_requirement : provide the social distancing norms to the users
+        """
      
  
  
