@@ -36,6 +36,12 @@ class Questions:
         social_distancing_requirement : provide the social distancing norms to the users
         """
         
+      def location_questions(self, indoors, outdoors)
+        "" This function will ask the question about whether the user is currently indoors or outdoors""
+        Attributes:
+         
+        Returns: 
+        
      
  
  
