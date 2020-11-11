@@ -44,6 +44,20 @@ class Questions:
         quarantine_requirement: provide if the user needs to quarantined from other individuals
         social_distancing_requirement : provide the social distancing norms to the users
         """
+        
+        
+        def seek_attention(self, symptoms, contact, location, time, frequency)
+       """This function will calculate an individual risk evaluation for each response to the question"""
+       
+       Attributes: 
+        Symptoms: A risk score for the potential of having COVID-19 will be given based on user responses
+        Contact: A risk score of contactraction will be calculated from close contact, whether indoors or outdoors, or whether the user was in a place of high exporsure
+        Location: A risk score calculated from visiting an area that has high COVID-19 infection rate-- whether state or recent exposure to high-infection areas
+        Time: Risk score based on how long they were exposed to someone in contact
+        Frequency: A risk score associated with the frequency in which they have been experiencing symptoms
+        
+       Returns: 
+        Overall risk score (int.) of having contracted COVID, and advice as to whether the user has to get tested, along with other advice. 
      
  
  
