@@ -47,7 +47,7 @@ class Questions:
         
         
         def seek_attention(self, symptoms, contact, location, time, frequency)
-       """This function will calculate an individual risk evaluation for each response to the question"""
+       """This function will show the calculation of an individual risk evaluation for each response to the question"""
        
        Attributes: 
         Symptoms: A risk score for the potential of having COVID-19 will be given based on user responses
