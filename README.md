@@ -1,4 +1,5 @@
 # Covid_project-
+import pandas as pd
 Final Project about Covid_19 Pandemic 
 
 class Questions:
@@ -44,7 +45,18 @@ class Questions:
       time = str(input("Amount of time spent on the location in days")
       print(time)
       self.location = location
-      l4_location = 
+      df = pd.read_excel (r'C:\Users\kohalhaque\Downloads\Covid data.xlsx') 
+      print (df)
+      if df.iloc[>15]:
+        return f(" Level 4 risk Area")
+      elif df.iloc[>68]:
+        return f("Level 3 risk area")
+      elif df.iloc[>174]:
+        return f("Level 2 risk area")
+      else:
+        return f("Level 1 risk area")
+        
+       
       
       
    
