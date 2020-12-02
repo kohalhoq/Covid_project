@@ -64,12 +64,17 @@ class Person:
       travelling_statistics: take the provided statistics about different nations and use this function to identify the risk of being exposed to covid
       """
       self.time= time
-      print(" Mention the travelling you have done within the last month ")
       time = str(input("Amount of time spent on the location in days")
       print(time)
       self.location = location
-      df = pd.read_excel (r'C:\Users\kohalhaque\Downloads\Covid data.xlsx') 
-      print (df)
+      location = print(input("Enter the location you have travelled to: "))
+      list = df['A'].tolist(loc)
+      loc= []
+      if location is in list:
+      print loc
+      else:
+      print ("Not Applicable")
+      df = pd.read_excel (r'C:\Users\kohalhaque\Downloads\Covid data.xlsx')
       if df.iloc[>15]:
         return f(" Level 4 risk Area")
       elif df.iloc[>68]:
@@ -78,6 +83,11 @@ class Person:
         return f("Level 2 risk area")
       else:
         return f("Level 1 risk area")
+        
+        
+       self.frequency = frequency 
+       if frequency > 0 
+        print ( 
     
       
      
