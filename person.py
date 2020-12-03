@@ -68,7 +68,38 @@ def questions(symptoms,symptoms_span, in_or_out ):
             return None
     else:
         print ("Not valid")
-      
+        
+def state_statistics(self):
+        """Method to request a users state and supply the current covid statistics for the given state
+
+        Returns:
+            Covid statistics in a uses given state"""
+
+        userstate = input("What state are you located in (No abbreviation): ").lower()
+
+
+        with open("covid_data.csv", "r", encoding="utf-8") as file:
+            csv = file.readlines()[3:]
+        columns = csv[0].split(",")
+        csv = csv[1:]
+        for row in csv:
+            if row.split(",")[0].lower() == userstate:
+                for item in range(len(row.split(","))):
+                    print(columns[item].replace("\n","")+": "+row.split(",")[item])
+                    
+def testing_centers(self):
+        """Method to request a users location and return nearby covid testing centers
+
+        Returns:
+            Covid testing centers in the users given state
+        """
+        userstate = input("What state are you located in (Abbreviation): ").upper()
+
+        with open("HHS_Provider_Relief_Fund.csv", "r", encoding="utf-8") as file:
+            csv = file.readlines()[1:]
+        for line in csv:
+            if line.split(",")[1] == userstate:
+                print(f"\n----------\nName: {line.split(',')[0]}\nState: {line.split(',')[1]}\nCity: {line.split(',')[2]}")
       
       
 def travelling_overseas(self, time, location, frequency):
