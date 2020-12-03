@@ -86,8 +86,13 @@ class Person:
         
         
        self.frequency = frequency 
-       if frequency > 0 
-        print ( 
+       frequency = input("What is the frequency of your travel:")
+       if frequency > 1:
+            print (" Please retake the quiz if you have travelled more than once using different location " )
+        else:
+            return frequency
+        
+            
     
       
      
