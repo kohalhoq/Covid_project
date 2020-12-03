@@ -1,3 +1,6 @@
+import sys
+import pandas as pd
+
 class Person:
     """A class that represents a person taking the COVID-19 survey.
     
