@@ -25,6 +25,28 @@ class Person:
         self.age = age
         self.country = country
         self.is_smoker = is_smoker
+        
+        
+def answer_questions():
+    """Asks questions to get some personal information about the person and creates an instance of the Person class."""
+    name = input("Please enter your full name : ")
+    print(f"Hi {name}! Hope you're doing well. Kindly take some time out to answer this questionnaire.")
+    print("")
+    age = input("What's your age? (Only enter a positive integer value)")
+    try:
+        age = int(age)
+    except Exception as e:
+        print("Please enter a valid value for age (positive integer)")
+        age = input("What's your age? (Only enter a positive integer value)")
+        age = int(age)
+    country = input("What is your country of residence?")
+    is_smoker = input("Are you a smoker? (Y/N)")
+    if 'y' in is_smoker.lower():
+        is_smoker = True
+    else:
+        is_smoker = False
+    
+    return Person(name, age, country, is_smoker)
 
 
 def questions(self, list_of_symptoms,list_of_symptoms_span, in_or_out ):
