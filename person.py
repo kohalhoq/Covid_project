@@ -27,33 +27,33 @@ class Person:
         self.is_smoker = is_smoker
 
 
-def questions(symptoms,symptoms_span, in_or_out ):
-    """ This function will ask the questions about symptoms for covid
+def questions(self, list_of_symptoms,list_of_symptoms_span, in_or_out ):
+    """ This function will ask the questions about list_of_symptoms for covid
     Attributes : 
-    symptoms: will consist of questions about symptoms the users are encountering 
+    list_of_symptoms: will consist of questions about list_of_symptoms the users are encountering 
     Returns:
-    list_of_symptoms: List of symptoms users chose from the provided list of symptoms
+    list_of_list_of_symptoms: List of list_of_symptoms users chose from the provided list of list_of_symptoms
     """
-    self.symptoms = list_of_symptoms
+    self.list_of_symptoms = list_of_symptoms
     self.symptoms_span = x
     self.in_or_out = ans
 
-    print ("Mention the symptoms that you are facing from the following list")
+    print ("Mention the list_of_symptoms that you are facing from the following list")
     list_of_symptoms = ["1. Fever or chills", "2. Cough", "3.Shortness of breathe", 
     "4.Difficulty breathing", "5. Fatigue", "6. Body/muscle ache",
      "7.Headache","8.New loss of tase or smell", "9. Sore throat", 
      "10. Congestion or runny nose", "11. Nausea or vomiting", "12. Diarrhea"]
 
     print (list_of_symptoms)
-    user_ans = str(input("Symptoms:"))
+    user_ans = str(input("list_of_symptoms:"))
     print (user_ans)
-    x= input("How many days have you been facing the symptoms: ")
+    x= input("How many days have you been facing the list_of_symptoms: ")
     print(x)
     if x>14:
         if list_of_symtomps > 3:
           return (list_of_symptoms)
     if x<14:
-       return list_of_symtoms
+       return list_of_symptoms
        print("Please wait at least 14 days in quarantine before getting tested")
     ans = input(" Have you been staying indoor or outdoor more commonly in the last few days: ")
     print(ans)
