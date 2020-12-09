@@ -145,7 +145,7 @@ def travelling_overseas(self, time, location, frequency):
         print loc
     else:
         print ("Not Applicable")
-    df = pd.read_excel (r'C:\Users\kohalhaque\Downloads\Covid data.xlsx')
+    df = pd.read_csv('covid data')
     if df.iloc[2:15]:
         return f(" Level 4 risk Area")
     elif df.iloc[16:68]:
