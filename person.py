@@ -74,6 +74,7 @@ def questions(self, list_of_symptoms,list_of_symptoms_span, in_or_out ):
     if x>14:
         if list_of_symtomps > 3:
           return (list_of_symptoms)
+          print (" Your have more than 3 symptoms. Please consider getting a test for Covid-19)
     if x<14:
        return list_of_symptoms
        print("Please wait at least 14 days in quarantine before getting tested")
