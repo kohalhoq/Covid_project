@@ -94,6 +94,7 @@ def questions(list_of_symptoms,symptoms_span, in_or_out ):
 questions('list_of_symptoms','symptoms_span','in_or_out')
 
 
+
         
 def state_statistics(self):
         """Method to request a users state and supply the current covid statistics for the given state
