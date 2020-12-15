@@ -26,7 +26,9 @@ class Person:
         self.age = age
         self.country = country
         self.is_smoker = is_smoker
-        def questions(list_of_symptoms,symptoms_span, in_or_out ):
+    
+    
+    def questions(list_of_symptoms,symptoms_span, in_or_out ):
     """ This function will ask the questions about list_of_symptoms for covid
     Attributes : 
     list_of_symptoms: will consist of questions about list_of_symptoms the users are encountering 
