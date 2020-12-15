@@ -35,42 +35,43 @@ class Person:
     Returns:
     list_of_symptoms: list_of_symptoms users chose from the provided list of list_of_symptoms
     """
-    list_of_symptoms = "symp"
-    symptoms_span = "x"
-    in_or_out = "ans"
+        list_of_symptoms = "symp"
+        symptoms_span = "x"
+        in_or_out = "ans"
 
-    print ("Mention the list_of_symptoms that you are facing from the following list")
+        print ("Mention the list_of_symptoms that you are facing from the following list")
     
-    symp= ["1. Fever or chills", "2. Cough", "3.Shortness of breathe", 
-    "4.Difficulty breathing", "5. Fatigue", "6. Body/muscle ache",
-     "7.Headache","8.New loss of tase or smell", "9. Sore throat", 
-     "10. Congestion or runny nose", "11. Nausea or vomiting", "12. Diarrhea"]
+        symp= ["1. Fever or chills", "2. Cough", "3.Shortness of breathe", 
+        "4.Difficulty breathing", "5. Fatigue", "6. Body/muscle ache",
+        "7.Headache","8.New loss of tase or smell", "9. Sore throat", 
+        "10. Congestion or runny nose", "11. Nausea or vomiting", "12. Diarrhea"]
 
-    print (symp)
-    user_ans = str(input("list_of_symptoms:"))
-    print (user_ans)
-    x= int(input("How many days have you been facing the list_of_symptoms: "))
-    if x > 14:
-        if len(symp) > 3:
-          print (" Your have more than 3 symptoms. Please consider getting a test for Covid-19")
-    if x <14:
-       return symp
-       print("Please wait at least 14 days in quarantine before getting tested")
-    ans = input(" Have you been staying indoor or outdoor more commonly in the last few days: ")
-    print(ans)
-    if ans == "Indoor":
-        return None
-    if ans == "Outdoor":
-        contact = input("Have you been in contact with any other covid patient recently: ")
-        print(contact)
-        if contact is yes:
-            return f("You need to be in quarantine")
-        else:
+        print (symp)
+        user_ans = str(input("list_of_symptoms:"))
+        print (user_ans)
+        x= int(input("How many days have you been facing the list_of_symptoms: "))
+        if x > 14:
+            if len(symp) > 3:
+                print (" Your have more than 3 symptoms. Please consider getting a test for Covid-19")
+        if x <14:
+            return symp
+            print("Please wait at least 14 days in quarantine before getting tested")
+        ans = input(" Have you been staying indoor or outdoor more commonly in the last few days: ")
+        print(ans)
+        if ans == "Indoor":
             return None
-    else:
-        print ("Not valid")
+        if ans == "Outdoor":
+            contact = input("Have you been in contact with any other covid patient recently: ")
+            print(contact)
+            if contact is yes:
+                return f("You need to be in quarantine")
+            else:
+                return None
+        else:
+            print ("Not valid")
         
     questions('list_of_symptoms','symptoms_span','in_or_out')
+    
     def state_statistics(self):
         """Method to request a users state and supply the current covid statistics for the given state
 
@@ -114,30 +115,32 @@ class Person:
     travelling_statistics: take the provided statistics and identify the risk of being exposed to covid
     """
     
-    time = input("Amount of time spent on the location in days")
-    print(time)
-    location = input("Enter the location you have travelled to: ")
-    print(location)
-    list = df['A'].tolist(loc)
-    loc= []
-    if location in list:
-        print loc
-    else:
-        print ("Not Applicable")
-    df = pd.read_csv('covid data')
-    if df.iloc[2:15]:
-        return f(" Level 4 risk Area")
-    elif df.iloc[16:68]:
-        return f("Level 3 risk area")
-    elif df.iloc[69:174]:
-        return f("Level 2 risk area")
-    else:
-        return f("Level 1 risk area")
-    frequency = input("What is the frequency of your travel:")
-    if frequency > 1:
-        print (" Please retake the quiz if you have travelled more than once using different location " )
-    else:
-        return frequency 
+        time = input("Amount of time spent on the location in days:")
+        print(time)
+        location = input("Enter the location you have travelled to: ")
+        print(location)
+        df = pd.read_csv('covid data')
+        list = df['A'].tolist(loc)
+        loc= []
+        if location in list:
+            print (loc)
+        else:
+            print ("Not Applicable")
+        df = pd.read_csv('covid data')
+        if df.iloc[2:15]:
+            return f(" Level 4 risk Area")
+        elif df.iloc[16:68]:
+            return f("Level 3 risk area")
+        elif df.iloc[69:174]:
+            return f("Level 2 risk area")
+        else:
+            return f("Level 1 risk area")
+        frequency = input("What is the frequency of your travel:")
+        if frequency > 1:
+            print (" Please retake the quiz if you have travelled more than once using different location " )
+        else:
+            return frequency
+    travelling_overseas('time', 'location', 'frequency')
         
 def answer_questions():
     """Asks questions to get some personal information about the person and creates an instance of the Person class."""
