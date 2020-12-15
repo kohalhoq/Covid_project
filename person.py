@@ -1,7 +1,6 @@
 import sys
 import pandas as pd
-from pandas import ExcelWriter
-from pandas import ExcelFile
+
 
 class Person:
     """A class that represents a person taking the COVID-19 survey.
@@ -106,14 +105,14 @@ class Person:
       
       
     def travelling_overseas(time, location, frequency):
-    """ This function will ask the question about travelling informations of the users 
-    Attributes: 
-    time: time spend in any foreign location
-    location: location of the area of visting 
-    frquency: number of times the location was visited by users 
-    Returns: 
-    travelling_statistics: take the provided statistics and identify the risk of being exposed to covid
-    """
+        """ This function will ask the question about travelling informations of the users 
+        Attributes: 
+            time: time spend in any foreign location
+            location: location of the area of visting 
+            frequency: number of times the location was visited by users 
+        Returns: 
+            travelling_statistics: take the provided statistics and identify the risk of being exposed to covid 19
+        """
     
         time = input("Amount of time spent on the location in days:")
         print(time)
