@@ -113,33 +113,31 @@ class Person:
         Returns: 
             travelling_statistics: take the provided statistics and identify the risk of being exposed to covid 19
         """
-    
         time = input("Amount of time spent on the location in days:")
-        print(time)
         location = input("Enter the location you have travelled to: ")
-        print(location)
-        df = pd.read_csv('covid data')
-        list = df['A'].tolist(loc)
-        loc= []
-        if location in list:
-            print (loc)
-        else:
-            print ("Not Applicable")
-        df = pd.read_csv('covid data')
-        if df.iloc[2:15]:
-            return f(" Level 4 risk Area")
-        elif df.iloc[16:68]:
-            return f("Level 3 risk area")
-        elif df.iloc[69:174]:
-            return f("Level 2 risk area")
-        else:
-            return f("Level 1 risk area")
         frequency = input("What is the frequency of your travel:")
         if frequency > 1:
-            print (" Please retake the quiz if you have travelled more than once using different location " )
+            print(" Please retake the quiz if you have travelled more than once using different location ")
         else:
             return frequency
-    travelling_overseas('time', 'location', 'frequency')
+        df = pd.read_csv('Covid_data.csv')
+   
+        list1 = df['Location'].tolist()
+        df.head()
+        if location in list1:
+            print(location)
+        else:
+            print("Not Applicable")
+        if location in list1[0:13]:
+            return f" Level 4 risk Area"
+        elif location in list1[14:66]:
+            return f"Level 3 risk area"
+        elif location in list1[67:172]:
+            return f"Level 2 risk area"
+        else:
+            return f"Level 1 risk area"
+    print(travelling_overseas('time', 'location', 'frequency'))
+
         
 def answer_questions():
     """Asks questions to get some personal information about the person and creates an instance of the Person class."""
