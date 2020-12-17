@@ -13,4 +13,8 @@ def test_person_edge(time,location):
   with pytest.raises(Exception):
       pass
   
+def test_use_gender():
+  person1 = Person('Nadia', 20, 'USA', True, 'F')
+  person2 = Person('James', 20, 'USA', False' 'M')
+  assert person.use_gender() = '
   
