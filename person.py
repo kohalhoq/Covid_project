@@ -19,12 +19,13 @@ class Person:
 
     
 
-    def __init__(self, name, age, country, is_smoker):
+    def __init__(self, name, age, country, is_smoker, gender):
         """Constructor for the class"""
         self.name = name
         self.age = age
         self.country = country
         self.is_smoker = is_smoker
+        self.gender = gender
     
     
     def questions(list_of_symptoms,symptoms_span, in_or_out ):
@@ -71,6 +72,14 @@ class Person:
         
     questions('list_of_symptoms','symptoms_span','in_or_out')
     
+    def use_gender(self):
+        if self.gender == 'M': 
+            print('Men have a 20% higher chance of dying from COVID-19. Stay safe!')
+        else:
+            print('Women are less likely to die from COVID-19. Still be careful though!')
+            
+    use_gender()
+            
     def state_statistics(self):
         """Method to request a users state and supply the current covid statistics for the given state
 
@@ -80,7 +89,7 @@ class Person:
         userstate = input("What state are you located in (No abbreviation): ").lower()
 
 
-        with open("covid_data.csv", "r", encoding="utf-8") as file:
+        with open("states.csv", "r", encoding="utf-8") as file:
             csv = file.readlines()[3:]
         columns = csv[0].split(",")
         csv = csv[1:]
@@ -138,7 +147,6 @@ class Person:
             return f"Level 1 risk area"
     print(travelling_overseas('time', 'location', 'frequency'))
 
-        
 def answer_questions():
     """Asks questions to get some personal information about the person and creates an instance of the Person class."""
     name = input("Please enter your full name : ")
@@ -158,7 +166,9 @@ def answer_questions():
     else:
         is_smoker = False
     
-    return Person(name, age, country, is_smoker)
+    gender = input('What is your gender (M/F)?')
+    
+    return Person(name, age, country, is_smoker, gender)
 
 
 
