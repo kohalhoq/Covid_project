@@ -16,5 +16,5 @@ def test_person_edge(time,location):
 def test_use_gender():
   person1 = Person('Nadia', 20, 'USA', True, 'F')
   person2 = Person('James', 20, 'USA', False' 'M')
-  assert person.use_gender() = '
-  
+  assert person1.use_gender() = 'Women are less likely to die from COVID-19. Still be careful though!'
+  assert person2.use_gender() = 'Men have a 20% higher chance of dying from COVID-19. Stay safe!'
