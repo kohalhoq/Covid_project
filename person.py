@@ -73,11 +73,12 @@ class Person:
     questions('list_of_symptoms','symptoms_span','in_or_out')
     
     def use_gender(self):
+        output = '' 
         if self.gender == 'M': 
-            print('Men have a 20% higher chance of dying from COVID-19. Stay safe!')
+            output = 'Men have a 20% higher chance of dying from COVID-19. Stay safe!'
         else:
-            print('Women are less likely to die from COVID-19. Still be careful though!')
-            
+            output = 'Women are less likely to die from COVID-19. Still be careful though!
+        return output
     use_gender()
             
     def state_statistics(self):
