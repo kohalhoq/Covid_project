@@ -76,7 +76,7 @@ class Person:
         x= int(input("How many days have you been facing the list_of_symptoms: "))
         if x > 14:
             if len(symp) > 3:
-                print (" Your have more than 3 symptoms. Please consider getting a test for Covid-19")
+                return f" Your have {user_ans} symptoms. Please consider getting a test for Covid-19"
         if x <14:
             return symp
             print("Please wait at least 14 days in quarantine before getting tested")
@@ -154,7 +154,7 @@ class Person:
             print(" Please retake the quiz if you have travelled more than once using different location ")
         else:
             return frequency
-        df = pd.read_csv('Covid_data.csv')
+        df = pd.read_csv('Covid_data1.csv')
    
         list1 = df['Location'].tolist()
         df.head()
