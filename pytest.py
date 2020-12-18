@@ -17,6 +17,8 @@ def test_questions():
         "You have 5 symptoms, Please consider getting tested for Covid-19"
         assert questions()== 
         "You need to be in quarantine" 
+        ctd = capsys.readouterr()
+        assert ctd.out == ("")
         
   
 def test_use_gender():
