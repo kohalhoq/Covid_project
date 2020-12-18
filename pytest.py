@@ -1,17 +1,23 @@
 import pytest
 from person import travelling_overseas
 
-def test_person(time, location):
-  assert person_travelling_overseas(16, Kenya, 1) = Level 3 risk area
-  assert person_travelling_overseas( 25, Vatican city,1) = Level 1 risk area
-  assert person_travelling_overseas (10, Brazil,1) = Level 4 risk area
-
-def test_person_edge(time,location):
-  assert person_travelling_overseas(27, Honduras,1) = Level 2 risk area
-  assert person_travelling_overseas( 45, Germany,1) = Level 3 risk area
-  assert person_travelling_overseas (32, Liechtenstein,1) = Level 4 risk area
-  with pytest.raises(Exception):
-      pass
+def test_questions():
+    with mock.patch("builtins.input", 
+                side_effect= ["2,4,6,7", 
+                "15", "Indoor"])
+        assert questions(list_of_symptoms, symptoms_span, in_or_out) == 
+        "You have 4 symptoms, Please consider getting tested for Covid-19"
+    with mock.patch ("builtins.input",
+                    side_effect = ["5,9","10"])
+        assert questions(list_of_symptoms, symptoms_span, in_or_out) == 
+        "Please wait at least 14 days in quarantine before getting tested"
+    with mock.patch ("builtins.input", 
+                    side_effects =  ["4,5,3,7,8", "20", "Outdoor", "Yes"])
+        assert questions(list_of_symptoms, symptoms_span, in_or_out)==
+        "You have 5 symptoms, Please consider getting tested for Covid-19"
+        assert questions()== 
+        "You need to be in quarantine" 
+        
   
 def test_use_gender():
   person1 = Person('Nadia', 20, 'USA', True, 'F')
