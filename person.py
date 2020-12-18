@@ -26,7 +26,31 @@ class Person:
         self.country = country
         self.is_smoker = is_smoker
         self.gender = gender
+        
+    def answer_questions():
+    """Asks questions to get some personal information about the person and creates an instance of the Person class."""
+    name = input("Please enter your full name : ")
+    print(f"Hi {name}! Hope you're doing well. Kindly take some time out to answer this questionnaire.")
+    print("")
+    age = input("What's your age? (Only enter a positive integer value)")
+    try:
+        age = int(age)
+    except Exception as e:
+        print("Please enter a valid value for age (positive integer)")
+        age = input("What's your age? (Only enter a positive integer value)")
+        age = int(age)
+    country = input("What is your country of residence?")
+    is_smoker = input("Are you a smoker? (Y/N)")
+    if 'y' in is_smoker.lower():
+        is_smoker = True
+    else:
+        is_smoker = False
     
+    gender = input('What is your gender (M/F)?')
+    
+    return Person(name, age, country, is_smoker, gender)
+    print(" People of older age, with habit of smoking or males have higher chances of getting affected from Covid-19") 
+
     
     def questions(list_of_symptoms,symptoms_span, in_or_out ):
     """ This function will ask the questions about list_of_symptoms for covid
@@ -148,28 +172,6 @@ class Person:
             return f"Level 1 risk area"
     print(travelling_overseas('time', 'location', 'frequency'))
 
-def answer_questions():
-    """Asks questions to get some personal information about the person and creates an instance of the Person class."""
-    name = input("Please enter your full name : ")
-    print(f"Hi {name}! Hope you're doing well. Kindly take some time out to answer this questionnaire.")
-    print("")
-    age = input("What's your age? (Only enter a positive integer value)")
-    try:
-        age = int(age)
-    except Exception as e:
-        print("Please enter a valid value for age (positive integer)")
-        age = input("What's your age? (Only enter a positive integer value)")
-        age = int(age)
-    country = input("What is your country of residence?")
-    is_smoker = input("Are you a smoker? (Y/N)")
-    if 'y' in is_smoker.lower():
-        is_smoker = True
-    else:
-        is_smoker = False
-    
-    gender = input('What is your gender (M/F)?')
-    
-    return Person(name, age, country, is_smoker, gender)
 
 
 
