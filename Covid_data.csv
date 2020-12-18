@@ -1,5 +1,4 @@
-Location,Cases, per 100K people,Deaths, per 100K people
-Location	Cases	...per 100K people	Deaths	...per 100K people
+Location,Cases, Cases per 100K people,Deaths, Deaths per 100K people
 Andorra	7,519	9,764	80	104
 Luxembourg	43,728	7,195	434	71
 Montenegro	43,390	6,972	620	100
