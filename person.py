@@ -104,24 +104,6 @@ class Person:
             output = 'Women are less likely to die from COVID-19. Still be careful though!
         return output
     use_gender()
-            
-    def state_statistics(self):
-        """Method to request a users state and supply the current covid statistics for the given state
-
-        Returns:
-            Covid statistics in a uses given state"""
-
-        userstate = input("What state are you located in (No abbreviation): ").lower()
-
-
-        with open("states.csv", "r", encoding="utf-8") as file:
-            csv = file.readlines()[3:]
-        columns = csv[0].split(",")
-        csv = csv[1:]
-        for row in csv:
-            if row.split(",")[0].lower() == userstate:
-                for item in range(len(row.split(","))):
-                    print(columns[item].replace("\n","")+": "+row.split(",")[item])
                     
     
    def testing_centers(self):
