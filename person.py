@@ -123,19 +123,30 @@ class Person:
                 for item in range(len(row.split(","))):
                     print(columns[item].replace("\n","")+": "+row.split(",")[item])
                     
-    def testing_centers(self):
-        """Method to request a users location and return nearby covid testing centers
-
-        Returns:
-            Covid testing centers in the users given state
-        """
+    
+   def testing_centers(self):
+        """Method to request a users location and return nearby covid testing centers"""
         userstate = input("What state are you located in (Abbreviation): ").upper()
+        usercity = input("What city are you located in? (No Abbreviation): ").upper()
 
-        with open("HHS_Provider_Relief_Fund.csv", "r", encoding="utf-8") as file:
-            csv = file.readlines()[1:]
-        for line in csv:
-            if line.split(",")[1] == userstate:
-                print(f"\n----------\nName: {line.split(',')[0]}\nState: {line.split(',')[1]}\nCity: {line.split(',')[2]}")
+        df = pd.read_csv("HHS_Provider_Relief_Fund.csv")
+        df3 = df[df["State"] == userstate]
+        df5 = df3[df3["City"] == usercity]
+        listvals = df5.values
+        for item in listvals:
+            print(f"\n----------\nName: {item[0]}\nState: {item[1]}\nCity: {item[2]}")
+
+        with open("states.json", "r", encoding="utf-8") as file:states = json.load(file)
+        userstate = states[userstate.upper()]
+
+        with open("covid_data.csv", "r", encoding="utf-8") as file:
+            csv = file.readlines()[3:]
+        columns = csv[0].split(",")
+        csv = csv[1:]
+        for row in csv:
+            if row.split(",")[0].lower() == userstate.lower():
+                for item in range(len(row.split(","))):
+                    print(columns[item].replace("\n", "") + ": " + row.split(",")[item])
       
       
     def travelling_overseas(time, location, frequency):
