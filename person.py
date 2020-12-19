@@ -173,7 +173,14 @@ class Person:
     print(travelling_overseas('time', 'location', 'frequency'))
 
 
-
+ def nursing home(self):
+                      answer = input('Have you been to a nursing home recently are more likely to get COVID-19. Please seek medical attention' (Y/N)?')
+                                     if answer = 'Y': 
+                                     return 'People who have been to a nursing home recenly are more likely to get COVID-19;
+                                     else:
+                                     return 'You are less likely to have COVID-19 since you have not visited a nursing home'
+                                     
+                                  
 
 
 
