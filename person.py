@@ -182,3 +182,11 @@ def main1(symptoms,symptoms_span,in_or_out,time, location, frequency):
         print(symptoms, symptoms_span, in_or_out)
     for time, location, frequency in travelling_overseas(time, location, frequency):
         print(time, location, frequency)
+                                     
+if __name__ == "__main__":
+    c = Person()
+    c.answer_questions()
+    c.questions()
+    c.use_gender()
+    c.testing_centers()
+    c.travelling_overseas()
