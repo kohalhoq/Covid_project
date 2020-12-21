@@ -26,30 +26,66 @@ class Person:
         self.country = country
         self.is_smoker = is_smoker
         self.gender = gender
+
+
+    @classmethod
+    def withnoargs(cls) -> 'Person':
+        return cls(None, None, None, None, None)
+
         
-    def answer_questions():
-    """Asks questions to get some personal information about the person and creates an instance of the Person class."""
-    name = input("Please enter your full name : ")
-    print(f"Hi {name}! Hope you're doing well. Kindly take some time out to answer this questionnaire.")
-    print("")
-    age = input("What's your age? (Only enter a positive integer value)")
-    try:
-        age = int(age)
-    except Exception as e:
-        print("Please enter a valid value for age (positive integer)")
-        age = input("What's your age? (Only enter a positive integer value)")
-        age = int(age)
-    country = input("What is your country of residence?")
-    is_smoker = input("Are you a smoker? (Y/N)")
-    if 'y' in is_smoker.lower():
-        is_smoker = True
-    else:
-        is_smoker = False
-    
-    gender = input('What is your gender (M/F)?')
-    
-    return Person(name, age, country, is_smoker, gender)
-    print(" People of older age, with habit of smoking or males have higher chances of getting affected from Covid-19") 
+    def answer_questions(self):
+        """Asks questions to get some personal information about the person and creates an instance of the Person class.
+        
+        Side effect
+        ---
+        Writes to stdout
+
+        """
+
+        name = input("Please enter your full name : ")
+        print(f"Hi {name}! Hope you're doing well. Kindly take some time out to answer this questionnaire.")
+        self.name = name
+
+        while True:
+            try:
+                age = int(input("What's your age? (Only enter a positive integer value) : "))
+            except ValueError:
+                print("Please enter a valid value for age. Postive integers only.")
+                continue
+            if age <= 0:
+                print("Please enter a valid value for age. Postive integers only.")
+                continue
+            self.age = age
+            break
+
+
+        country = input("What is your country of residence? : ")
+        self.country = country
+
+        while True:
+            is_smoker = input("Are you a smoker? (Y/N) : ")
+            if is_smoker.lower().strip() not in ('y', 'n'):
+                print("Please enter a valid response (Y/N)")
+                continue
+            else:
+                if is_smoker.lower().strip() == 'y':
+                    self.is_smoker = True
+                else:
+                    self.is_smoker = False
+                break
+        
+        while True:
+            gender = input("What is your gender? (M/F) : ")
+            if gender.lower().strip() not in ('m', 'f'):
+                print("Please enter a valid response (M/F).")
+                continue
+            else:
+                if gender.lower().strip() == 'm':
+                    self.gender = 'M'
+                else:
+                    self.gender = 'F'
+                break
+        print("People of older age, with habit of smoking or males have higher chances of getting affected by Covid-19.")
 
     
     def questions(list_of_symptoms,symptoms_span, in_or_out ):
@@ -184,7 +220,7 @@ def main1(symptoms,symptoms_span,in_or_out,time, location, frequency):
         print(time, location, frequency)
                                      
 if __name__ == "__main__":
-    c = Person()
+    c = Person.withnoargs()
     c.answer_questions()
     c.questions()
     c.use_gender()
