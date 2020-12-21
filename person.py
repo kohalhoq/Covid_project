@@ -88,17 +88,14 @@ class Person:
         print("People of older age, with habit of smoking or males have higher chances of getting affected by Covid-19.")
 
     
-    def questions(list_of_symptoms,symptoms_span, in_or_out ):
+    def questions(self):
     """ This function will ask the questions about list_of_symptoms for covid
     Attributes : 
     list_of_symptoms: will consist of questions about list_of_symptoms the users are encountering 
     Returns:
     list_of_symptoms: list_of_symptoms users chose from the provided list of list_of_symptoms
     """
-        list_of_symptoms = "symp"
-        symptoms_span = "x"
-        in_or_out = "ans"
-
+      
         print ("Mention the list_of_symptoms that you are facing from the following list")
     
         symp= ["1. Fever or chills", "2. Cough", "3.Shortness of breathe", 
@@ -117,7 +114,7 @@ class Person:
             return symp
             print("Please wait at least 14 days in quarantine before getting tested")
         ans = input(" Have you been staying indoor or outdoor more commonly in the last few days: ")
-        print(ans)
+      
         if ans == "Indoor":
             return None
         if ans == "Outdoor":
@@ -127,10 +124,8 @@ class Person:
                 return f("You need to be in quarantine")
             else:
                 return None
-        else:
-            print ("Not valid")
         
-    questions('list_of_symptoms','symptoms_span','in_or_out')
+   
     
     def use_gender(self):
         output = '' 
@@ -203,22 +198,14 @@ class Person:
 
 
  def nursing home(self):
-                      answer = input('Have you been to a nursing home recently are more likely to get COVID-19. Please seek medical attention' (Y/N)?')
-                                     if answer = 'Y': 
-                                     return 'People who have been to a nursing home recenly are more likely to get COVID-19;
-                                     else:
-                                     return 'You are less likely to have COVID-19 since you have not visited a nursing home'
+    answer = input('Have you been to a nursing home recently are more likely to get COVID-19. Please seek medical attention' (Y/N)?')
+    if answer = 'Y': 
+        return 'People who have been to a nursing home recenly are more likely to get COVID-19;
+    else:
+        return 'You are less likely to have COVID-19 since you have not visited a nursing home'
                                      
                                   
 
-
-
-def main1(symptoms,symptoms_span,in_or_out,time, location, frequency):
-    for symptoms, symptoms_span, in_or_out in questions(symptoms, symptoms_span, in_or_out):
-        print(symptoms, symptoms_span, in_or_out)
-    for time, location, frequency in travelling_overseas(time, location, frequency):
-        print(time, location, frequency)
-                                     
 if __name__ == "__main__":
     c = Person.withnoargs()
     c.answer_questions()
