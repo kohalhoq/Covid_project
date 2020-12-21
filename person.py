@@ -176,9 +176,9 @@ class Person:
         Returns: 
             travelling_statistics: take the provided statistics and identify the risk of being exposed to covid 19
         """
-        time = input("Amount of time spent on the location in days:")
+        time = int(input("Amount of time spent on the location in days:"))
         location = input("Enter the location you have travelled to: ")
-        frequency = input("What is the frequency of your travel:")
+        frequency = int(input("What is the frequency of your travel:"))
         if frequency > 1:
             print(" Please retake the quiz if you have travelled more than once using different location ")
         else:
