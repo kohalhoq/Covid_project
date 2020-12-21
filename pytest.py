@@ -7,7 +7,7 @@ import hashlib
 
 def test_answer_questions(capsys):
     p1 = Person.withnoargs()
-    with mock.patch("builtins.input", side_effect=["Paulo Matos", "19", "Brazil", "N", "M"]):
+    with mock.patch("builtins.input", side_effect=["Paulo Matos", "19", "Brazil", "J", "N", "M"]):
         p1.answer_questions()
         captured = capsys.readouterr()
         print(captured)
