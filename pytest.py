@@ -1,7 +1,36 @@
 import pytest
 from person import travelling_overseas
-from second import Person
+from person import Person
+from unittest import mock
 import hashlib
+
+
+def test_answer_questions(capsys):
+    p1 = Person.withnoargs()
+    with mock.patch("builtins.input", side_effect=["Paulo Matos", "19", "Brazil", "N", "M"]):
+        p1.answer_questions()
+        captured = capsys.readouterr()
+        print(captured)
+        assert captured.out == (
+            "Hi Paulo Matos! Hope you're doing well. Kindly take some time out to answer this questionnaire.\n"
+            "People of older age, with habit of smoking or males have higher chances of getting affected by Covid-19.\n"
+        )
+        assert p1.name == "Paulo Matos"
+        assert p1.age == 19
+        assert p1.country == "Brazil"
+        assert p1.is_smoker == False
+        assert p1.gender == "M"
+    
+
+    p2 = Person.withnoargs()
+    with mock.patch("builtins.input", side_effect=["Paulo Matos", "twenty three", "23", "Brazil", "N", "M"]):
+        p2.answer_questions()
+        assert p2.name == "Paulo Matos"
+        assert p2.age == 23
+        assert p2.country == "Brazil"
+        assert p2.is_smoker == False
+        assert p2.gender == "M"
+
 
 def test_questions():
     with mock.patch("builtins.input", 
