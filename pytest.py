@@ -32,24 +32,28 @@ def test_answer_questions(capsys):
         assert p2.gender == "M"
 
 
-def test_questions():
-    with mock.patch("builtins.input", 
-                side_effect= ["2,4,6,7", 
-                "15", "Indoor"])
-        assert questions(list_of_symptoms, symptoms_span, in_or_out) == 
-        "You have 4 symptoms, Please consider getting tested for Covid-19"
-    with mock.patch ("builtins.input",
-                    side_effect = ["5,9","10"])
-        assert questions(list_of_symptoms, symptoms_span, in_or_out) == 
-        "Please wait at least 14 days in quarantine before getting tested"
-    with mock.patch ("builtins.input", 
-                    side_effects =  ["4,5,3,7,8", "20", "Outdoor", "Yes"])
-        assert questions(list_of_symptoms, symptoms_span, in_or_out)==
-        "You have 5 symptoms, Please consider getting tested for Covid-19"
-        assert questions()== 
-        "You need to be in quarantine" 
-        ctd = capsys.readouterr()
-        assert ctd.out == ("")
+import pytest
+from second import Person
+
+
+def test_questions(capsys):
+    
+    pe = Person()
+    with mock.patch("builtins.input", side_effect= ["2,4,6,7", "15", "Indoor"]):
+        assert pe.questions() == "You have 4 symptoms, Please consider getting tested for Covid-19"
+        captured = capsys.readouterr()
+        assert captured.out ==(
+            "You have 4 symptoms, Please consider getting tested for Covid-19.\n")
+    with mock.patch ("builtins.input", side_effect = ["5,9","10"]):
+        assert pe.questions() == " Wait at least 14 days in quarantine to get tested"
+        captured = capsys.readouterr()
+        assert captured.out == ("Please wait at least 14 days in quarantine before getting tested")
+    with mock.patch ("builtins.input", side_effects =  ["4,5,3,7,8", "20", "Outdoor", "Yes"]):
+        assert pe.questions()=="You have 5 symptoms, Please consider getting tested for Covid-19"
+        assert pe.questions()== "You need to be in quarantine"
+        captured = capsys.readouterr()
+        assert captured.out == ""
+
         
   
 def test_use_gender():
