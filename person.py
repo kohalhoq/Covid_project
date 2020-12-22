@@ -89,11 +89,15 @@ class Person:
 
     
     def questions(self):
-    """ This function will ask the questions about list_of_symptoms for covid
+    """ This function will ask the questions about symptoms, symptom span and indoor or outdoor 
     Attributes : 
-    list_of_symptoms: will consist of questions about list_of_symptoms the users are encountering 
+    list_of_symptoms: questions about list_of_symptoms the users are encountering 
+    symptoms_span : time frame for the existing symtomps
+    in_or_out: Indoor and outdoor staying tendencies 
     Returns:
-    list_of_symptoms: list_of_symptoms users chose from the provided list of list_of_symptoms
+    list_of_symptoms(str): list_of_symptoms users chose from the provided list 
+    get_tested: whether or not the user should consider getting tested
+    quarintine : whether or not user should stay in quarantine
     """
       
         print ("Mention the list_of_symptoms that you are facing from the following list")
@@ -162,39 +166,39 @@ class Person:
                     print(columns[item].replace("\n", "") + ": " + row.split(",")[item])
       
       
-    def travelling_overseas(time, location, frequency):
-        """ This function will ask the question about travelling informations of the users 
-        Attributes: 
-            time: time spend in any foreign location
-            location: location of the area of visting 
-            frequency: number of times the location was visited by users 
-        Returns: 
-            travelling_statistics: take the provided statistics and identify the risk of being exposed to covid 19
-        """
-        time = int(input("Amount of time spent on the location in days:"))
-        location = input("Enter the location you have travelled to: ")
-        frequency = int(input("What is the frequency of your travel:"))
-        if frequency > 1:
-            print(" Please retake the quiz if you have travelled more than once using different location ")
-        else:
-            return frequency
-        df = pd.read_csv('Covid_data1.csv')
-   
-        list1 = df['Location'].tolist()
-        df.head()
-        if location in list1:
-            print(location)
-        else:
-            print("Not Applicable")
-        if location in list1[0:13]:
-            return f" Level 4 risk Area"
-        elif location in list1[14:66]:
-            return f"Level 3 risk area"
-        elif location in list1[67:172]:
-            return f"Level 2 risk area"
-        else:
-            return f"Level 1 risk area"
-    print(travelling_overseas('time', 'location', 'frequency'))
+   def travelling_overseas(self):
+    """ This function will ask the question about overseas travelling 
+    Attributes:
+        time: time spend in any foreign location
+        location: location of the area of visting
+        frequency: number of times the location was visited by users
+     Returns:
+        travel_stat: identify the level of risk for specific country
+    """
+    print ("If you have taken any overseas trip please answer the following questions")
+    frequency = int(input("What is the frequency of your travel:"))
+    if frequency > 1:
+        print(" Please retake the quiz if you have travelled more than once using different location ")
+    
+    time = int(input("Amount of time spent on the location in days:"))
+    location = input("Enter the location you have travelled to: ")
+    df = pd.read_csv('Covid_data1.csv')
+    list1 = df['Location'].tolist()
+    df.head()
+    if location in list1:
+        print(location)
+    else:
+        print("Not Applicable")
+    if location in list1[0:13]:
+        return f" {location} is Level 4 risk Area"
+    elif location in list1[14:66]:
+        return f"{location} is Level 3 risk area"
+    elif location in list1[67:172]:
+        return f"{location} is Level 2 risk area"
+    else:
+        return f"{location} is Level 1 risk area"
+
+
 
 
  def nursing home(self):
